@@ -74,8 +74,12 @@ func (e EbayConf) RunCommand(c Command) (EbayResponse, error) {
 		}
 		httpErr.body, _ = ioutil.ReadAll(resp.Body)
 
+		resp.Body.Close()
+
 		return ebayResponse{}, httpErr
 	}
+
+	defer resp.Body.Close()
 
 	bodyContents, _ := ioutil.ReadAll(resp.Body)
 
