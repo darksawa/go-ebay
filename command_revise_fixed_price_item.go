@@ -5,6 +5,7 @@ import "encoding/xml"
 type ReviseFixedPriceItem struct {
 	ItemID                string
 	StartPrice            string `xml:",omitempty"`
+	Currency              string
 	ConditionID           uint   `xml:",omitempty"`
 	Quantity              uint
 	Title                 string           `xml:",omitempty"`
