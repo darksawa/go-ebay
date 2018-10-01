@@ -20,11 +20,7 @@ func (c EndFixedPriceItem) ParseResponse(r []byte) (EbayResponse, error) {
 }
 
 func (c EndFixedPriceItem) Body() interface{} {
-	type Item struct {
-		EndFixedPriceItem
-	}
-
-	return Item{c}
+	return c
 }
 
 type EndFixedPriceItemResponse struct {
