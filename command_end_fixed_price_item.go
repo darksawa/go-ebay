@@ -20,7 +20,17 @@ func (c EndFixedPriceItem) ParseResponse(r []byte) (EbayResponse, error) {
 }
 
 func (c EndFixedPriceItem) Body() interface{} {
-	return c
+	type ItemID struct {
+		ItemID string `xml:",innerxml"`
+	}
+	type EndingReason struct {
+		EndingReason string `xml:",innerxml"`
+	}
+	/*type SKU struct {
+		SKU string `xml:",innerxml"`
+	}*/
+
+	return []interface{}{ItemID{c.ItemID}, EndingReason{c.EndingReason}/*, SKU{c.SKU}*/}
 }
 
 type EndFixedPriceItemResponse struct {
