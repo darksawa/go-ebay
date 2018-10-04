@@ -57,18 +57,16 @@ func Test_AddFixedPriceItem_Body(t *testing.T) {
 		ReturnPolicy: &ReturnPolicy{
 			"accepted", "accepted option", "returns within option", "refund option", "shipping cost paid by option",
 		},
-		PictureDetails: &PictureDetails{"url"},
+		PictureDetails: &PictureDetails{[]string{"url"}},
 		ProductListingDetails: &ProductListingDetails{
 			UPC:      "upc",
-			BrandMPN: BrandMPN{"foo", "bar"},
+			BrandMPN: &BrandMPN{"foo", "bar"},
 		},
-		ItemSpecifics: []ItemSpecifics{
-			ItemSpecifics{
-				[]NameValueList{
-					NameValueList{
-						Name:  "name",
-						Value: []string{"value"},
-					},
+		ItemSpecifics: &ItemSpecifics{
+			[]NameValueList{
+				NameValueList{
+					Name:  "name",
+					Value: []string{"value"},
 				},
 			},
 		},
